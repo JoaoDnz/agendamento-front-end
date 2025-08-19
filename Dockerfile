@@ -7,6 +7,9 @@ WORKDIR /app
 # Copia a pasta inteira do back-end para dentro do container
 COPY agendamento/ .
 
+# Dá permissão de execução ao script do Gradle
+RUN chmod +x ./gradlew
+
 # Constrói a aplicação
 RUN ./gradlew build
 
