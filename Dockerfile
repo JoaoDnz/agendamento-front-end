@@ -4,16 +4,8 @@ FROM openjdk:17-jdk-slim
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copia o wrapper do Gradle
-COPY gradlew .
-COPY gradle ./gradle
-
-# Copia o arquivo de build
-COPY build.gradle .
-COPY settings.gradle .
-
-# Copia o código-fonte da aplicação
-COPY src ./src
+# Copia a pasta inteira do back-end para dentro do container
+COPY agendamento/ .
 
 # Constrói a aplicação
 RUN ./gradlew build
